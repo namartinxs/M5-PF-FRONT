@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import GlassCard from "./(components)/liquidGlass";
+import GlassCard from "../../components/liquidGlass";
 
 export default function LoginPage() {
   const router = useRouter();
