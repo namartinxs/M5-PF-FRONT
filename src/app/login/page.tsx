@@ -13,12 +13,33 @@ export default function LoginPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
 
-    if (email === "admin@email.com" && password === "123456") {
-      localStorage.setItem("token", "fake-token");
-      router.push("/");
-    } else {
-      setError("Credenciais inválidas");
+    try {
+      const response = await fetch("https://apisolidaria.onrender.com/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // permite cookies
+        body: JSON.stringify({
+          email,
+          senha: password,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Erro ao fazer login");
+      }
+
+      const data = await response.json();
+      console.log("Usuário logado:", data.user);
+
+      router.push("/me"); // redireciona após login
+
+    } catch (err: any) {
+      setError(err.message || "Erro ao fazer login");
     }
   };
 
@@ -30,9 +51,7 @@ export default function LoginPage() {
 
       <div className="w-1/2 bg-gray-100 p-4 text-white flex items-center justify-center">
         <div className="flex flex-col items-center w-full max-w-md gap-y-4">
-          <>
-            <Image src="/user.png" width={36} height={36} alt="user" />
-          </>
+          <Image src="/user.png" width={36} height={36} alt="user" />
 
           <form
             onSubmit={handleLogin}
