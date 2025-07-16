@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 export default function Header() {
   return (
-    <header className="w-full bg-gray-100 text-[#557a6a]">
+    <header className="w-full bg-background text-grayish-green">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/home">
           <Image
