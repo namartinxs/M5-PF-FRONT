@@ -2,17 +2,20 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 export default function Header() {
   return (
     <header className="w-full bg-gray-100 text-[#557a6a]">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        
-    
-        <Link href="/" className="text-xl font-bold hover:underline">
-          Corrente do Bem
+        <Link href="/home">
+          <Image
+            src="/Logo.png"
+            alt="logo"
+            width={36}
+            height={20}
+            className="cursor-pointer"
+          ></Image>
         </Link>
-
-   
         <nav className="flex space-x-6 items-center">
           <Link href="/suporte" className="hover:underline">
             Suporte
@@ -25,12 +28,10 @@ export default function Header() {
           </Link>
         </nav>
 
-   
         <Link href="/login" className="hover:underline">
           Login/Cadastro
         </Link>
       </div>
     </header>
-  )
+  );
 }
-
