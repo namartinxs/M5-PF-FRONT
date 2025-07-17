@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="w-full bg-background text-grayish-green">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/home">
+        <Link href="/">
           <Image
             src="/Logo.png"
             alt="logo"
