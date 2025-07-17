@@ -1,10 +1,10 @@
-import CampanhasList from "@/components/CardList";
-import Image from "next/image";
+import CampanhasList from "@/components/campanhaCardList";
+import { campanhasFake } from "@/Data/capanhasFake";
 
 export default function Home() {
   return (
-   <> 
-   <CampanhasList imagemCard="/imageHands.png" />
-   </>
+    <>
+      <CampanhasList campanhas={campanhasFake} imagemCard="/imageHands.png" />
+    </>
   );
 }
