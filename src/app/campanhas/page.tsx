@@ -1,5 +1,6 @@
 "use client";
 import CampanhasList from "@/components/campanhaCardList";
+import Oops from "@/components/oopsComponent";
 import { useEffect, useState } from "react";
 
 interface Campanha {
@@ -31,12 +32,18 @@ export default function CampanhaPage() {
     fetchCampanhas();
   }, []);
   return (
-  
-
-  <div className="p-8 bg-background min-h-screen">
-      <h1 className="text-2xl font-bold mb-6 text-center text-dark-green">Campanhas Solidárias</h1>
+    <div className="p-8 bg-background min-h-screen">
+      
       {error && <p className="text-red-500 text-center">{error}</p>}
-    <CampanhasList campanhas={campanhas} imagemCard="/defaultcampanhaimage" />
-  </div>
+
+      {campanhas.length === 0 ? (
+        <Oops problem="Parece que não temos campanhas ativas no momento" />
+      ) : (
+        <CampanhasList
+          campanhas={campanhas}
+          imagemCard="/defaultcampanhaimage"
+        />
+      )}
+    </div>
   );
 }
