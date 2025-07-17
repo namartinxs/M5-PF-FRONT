@@ -38,8 +38,12 @@ export default function LoginPage() {
 
       router.push("/me"); // redireciona após login
 
-    } catch (err: any) {
-      setError(err.message || "Erro ao fazer login");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Erro ao fazer login");
+      } else {
+        setError("Erro ao fazer login");
+      }
     }
   };
 
