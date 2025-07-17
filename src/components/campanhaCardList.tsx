@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 interface Campanha {
-  id: number;
+  id: number; // normalmente IDs numéricos, mas pode ser string se preferir
   titulo: string;
   descricao: string;
   meta: number;
@@ -49,4 +49,3 @@ export default function CampanhasList({ campanhas, imagemCard }: CampanhasListPr
     </div>
   );
 }
-
