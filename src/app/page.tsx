@@ -1,31 +1,13 @@
-"use client";
+'use client';
 
-import Carousel from "../components/Carousel";
-
-
-
+import Carousel from '../components/Carousel';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export default function Home() {
   return (
-    <section className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-sans">
-   
-
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Carousel />
-      
-     
-
-        {/* 
-          Aqui você pode colocar os outros componentes como:
-          - <Filter />
-          - <BottomFilter />
-          - <Destaques />
-          - <Cidades />
-        */}
-      </main>
-
-  
-    </section>
+    <div className="w-screen h-screen overflow-hidden mt-30">
+      <Carousel />
+    </div>
   );
 }
-
