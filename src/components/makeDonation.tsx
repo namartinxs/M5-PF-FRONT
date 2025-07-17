@@ -21,7 +21,7 @@ export default function MakeDonation() {
           <p className="leading-relaxed text-justify">
             Doe com o coração. Porque juntos, somos mais fortes.
           </p>
-          <Button route= '/cadastro'variant='darkOutline' type="button">Faça uma doação!</Button>
+          <Button route= '/campanhas'variant='darkOutline' type="button">Faça uma doação!</Button>
         </div>
         <div className="flex-shrink-0">
           <Image
