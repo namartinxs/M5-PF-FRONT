@@ -15,13 +15,7 @@ export default function Home() {
       
      
 
-        {/* 
-          Aqui você pode colocar os outros componentes como:
-          - <Filter />
-          - <BottomFilter />
-          - <Destaques />
-          - <Cidades />
-        */}
+        { }
       </main>
 
   
