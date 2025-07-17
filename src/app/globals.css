@@ -2,7 +2,6 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
   --dark-green: #2f4e41;
   --grayish-green: #557a6a;
   --light-green: #b6ebc3;
@@ -17,13 +16,6 @@
   --color-grayish-green: var(--grayish-green);
   --color-light-green: var(--light-green);
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #f4f4f6;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   background: var(--background);
