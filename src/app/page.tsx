@@ -1,10 +1,10 @@
-import CampanhasList from "@/components/CardList";
-import Image from "next/image";
+import AboutWe from "@/components/aboutWe";
+
 
 export default function Home() {
   return (
-   <> 
-   <CampanhasList imagemCard="/imageHands.png" />
+   <>
+   <AboutWe/>
    </>
   );
 }
