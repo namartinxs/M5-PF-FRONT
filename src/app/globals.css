@@ -18,12 +18,12 @@
   --color-light-green: var(--light-green);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #f4f4f6;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
