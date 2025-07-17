@@ -1,1 +1,1 @@
-link deploy https://m5-pf-front-d5c5lt0b7-namartinxs-projects.vercel.app/
+link deploy https://m5-pf-front-cae3shomv-namartinxs-projects.vercel.app/sobre
