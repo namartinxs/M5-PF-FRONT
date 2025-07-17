@@ -1,46 +1,53 @@
 'use client';
 
-import { useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Slider from 'react-slick';
+import Image from 'next/image';
 
-const images = [
-  '/img1.jpg',
-  '/img2.jpg',
-  '/img3.jpg',
+const slides = [
+  { src: '/imagen1.jpeg', alt: 'Imagem 1', title: 'Soltar-se', desc: 'Desconecte-se do mundo e encontre sua paz interior.' },
+  { src: '/imagem2.jpeg', alt: 'Imagem 2', title: 'Conforto para todos', desc: 'Ajude quem precisa com pequenas ações.' },
+  { src: '/imagem3.jpeg', alt: 'Imagem 3', title: 'Transforme vidas', desc: 'Doe e acompanhe campanhas solidárias.' },
 ];
 
-export default function Carousel() {
-  const [current, setCurrent] = useState(0);
-
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+export default function HeroCarousel() {
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    pauseOnHover: false,
   };
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto">
-      <img
-        src={images[current]}
-        alt="Imagem"
-        className="w-full h-64 object-cover rounded-xl transition-all duration-500"
-      />
-
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
-      >
-        <FaChevronLeft />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
-      >
-        <FaChevronRight />
-      </button>
+       <section className="">
+       
+    
+          <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="w-screen h-[90vh] relative">
+      <Slider {...settings}>
+        {slides.map((slide, i) => (
+          <div key={i} className="relative w-screen h-[90vh]">
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              layout="fill"
+              objectFit="cover"
+              className="brightness-75"
+              priority={i === 0}
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+              <h2 className="text-4xl md:text-6xl font-bold mb-4">{slide.title}</h2>
+              <p className="text-lg md:text-xl max-w-2xl">{slide.desc}</p>
+            </div>
+          </div>
+        ))}
+      </Slider>
     </div>
+    </main>
+    </section>
   );
 }
