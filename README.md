@@ -1,9 +1,10 @@
-🌍 Front-end Solidária de Doações
+# 🌍 Front-end Solidária de Doações
+
 Plataforma web que conecta doadores a campanhas sociais de ONGs, projetos comunitários e organizações solidárias, proporcionando uma experiência de doação intuitiva e segura.
 
-📂 Estrutura do Projeto
-plaintext
-Copiar
+## 📂 Estrutura do Projeto
+
+```plaintext
 api-solidaria-frontend/
 ├── README.md               # Este arquivo
 ├── public/                 # Arquivos estáticos
