@@ -16,32 +16,35 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const response = await fetch("https://apisolidaria.onrender.com/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include", // permite cookies
-        body: JSON.stringify({
-          email,
-          senha: password,
-        }),
-      });
+      const response = await fetch(
+        "https://apisolidaria.onrender.com/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // permite cookies
+          body: JSON.stringify({
+            email,
+            senha: password,
+          }),
+        }
+      );
+
+      const data = await response.json();
 
       if (!response.ok) {
-        const data = await response.json();
         throw new Error(data.error || "Erro ao fazer login");
       }
 
-      const data = await response.json();
       console.log("Usuário logado:", data.user);
-
       router.push("/me"); // redireciona após login
-
     } catch (err: any) {
       setError(err.message || "Erro ao fazer login");
     }
   };
+
+
 
   return (
     <div className="flex h-screen no-scrollbar">
