@@ -28,12 +28,24 @@ export default function LoginPage() {
         }),
       });
 
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || "Erro ao fazer login");
-      }
+const text = await response.text();
 
-      const data = await response.json();
+if (!response.ok) {
+  try {
+    const data = JSON.parse(text);
+    throw new Error(data.error || "Erro ao fazer login");
+  } catch {
+    throw new Error(text || "Erro ao fazer login");
+  }
+}
+
+let data: any;
+try {
+  data = JSON.parse(text);
+} catch {
+  throw new Error("Resposta do servidor não é um JSON válido.");
+}
+
       console.log("Usuário logado:", data.user);
 
       router.push("/me"); // redireciona após login
