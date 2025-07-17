@@ -24,8 +24,12 @@ export default function CampanhaPage() {
 
         const data = await response.json();
         setCampanhas(data);
-      } catch (err: any) {
-        setError(err.message || "Erro ao carregar campanhas");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Erro ao carregar campanhas");
+        }
       }
     };
 

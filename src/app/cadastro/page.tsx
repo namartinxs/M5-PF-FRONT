@@ -40,8 +40,12 @@ export default function RegisterPage() {
       setSucesso("Usuário cadastrado com sucesso!");
       setTimeout(() => router.push("/login"), 1500);
 
-    } catch (err: any) {
-      setError(err.message || "Erro ao cadastrar");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Erro ao cadastrar");
+      } else {
+        setError("Erro ao cadastrar");
+      }
     }
   };
 
